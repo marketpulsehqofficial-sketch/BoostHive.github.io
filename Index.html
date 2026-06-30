@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BoostHive — সোশ্যাল মিডিয়া বুস্টিং সার্ভিস</title>
+<meta name="description" content="ফেসবুক, ইউটিউব ও ইনস্টাগ্রামের সবচেয়ে বিশ্বস্ত SMM Reseller সার্ভিস — BoostHive">
+
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- FontAwesome -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<!-- Fonts: Hind Siliguri for Bangla, Poppins for English -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          gold: '#FFD700',
+          honey: '#FFC700',
+          dark: {
+            900: '#08080a',
+            800: '#0e0e12',
+            700: '#16161c',
+            600: '#1d1d24',
+            500: '#26262f',
+          }
+        },
+        fontFamily: {
+          bn: ['"Hind Siliguri"', 'sans-serif'],
+          en: ['"Poppins"', 'sans-serif'],
+        },
+        boxShadow: {
+          'gold-glow': '0 0 25px -5px rgba(255,215,0,0.35)',
+          'gold-glow-lg': '0 0 60px -10px rgba(255,215,0,0.25)',
+        }
+      }
+    }
+  }
+</script>
+
+<style>
+  body {
+    font-family: 'Hind Siliguri', 'Poppins', sans-serif;
+    background-color: #08080a;
+  }
+  .font-en { font-family: 'Poppins', sans-serif; }
+
+  /* Honeycomb pattern background */
+  .honeycomb-bg {
+    background-color: #08080a;
+    background-image:
+      radial-gradient(circle at 50% 50%, rgba(255,215,0,0.04) 0%, transparent 60%),
+      repeating-linear-gradient(120deg, rgba(255,215,0,0.035) 0px, rgba(255,215,0,0.035) 1px, transparent 1px, transparent 60px),
+      repeating-linear-gradient(60deg, rgba(255,215,0,0.035) 0px, rgba(255,215,0,0.035) 1px, transparent 1px, transparent 60px),
+      repeating-linear-gradient(0deg, rgba(255,215,0,0.035) 0px, rgba(255,215,0,0.035) 1px, transparent 1px, transparent 104px);
+  }
+
+  .honeycomb-bg-soft {
+    background-image:
+      repeating-linear-gradient(120deg, rgba(255,215,0,0.025) 0px, rgba(255,215,0,0.025) 1px, transparent 1px, transparent 50px),
+      repeating-linear-gradient(60deg, rgba(255,215,0,0.025) 0px, rgba(255,215,0,0.025) 1px, transparent 1px, transparent 50px),
+      repeating-linear-gradient(0deg, rgba(255,215,0,0.025) 0px, rgba(255,215,0,0.025) 1px, transparent 1px, transparent 86px);
+  }
+
+  .gold-gradient-text {
+    background: linear-gradient(90deg, #FFD700, #FFEC8B, #FFD700);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .glass-card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.015));
+    border: 1px solid rgba(255,215,0,0.14);
+    backdrop-filter: blur(10px);
+  }
+
+  .blob {
+    position: absolute;
+    border-radius: 9999px;
+    filter: blur(90px);
+    opacity: 0.18;
+    pointer-events: none;
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: #0e0e12; }
+  ::-webkit-scrollbar-thumb { background: #FFD700; border-radius: 10px; }
+
+  .hex-badge {
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+  }
+
+  select option { background-color: #16161c; color: #fff; }
+
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-14px); }
+  }
+  .animate-float { animation: float 5s ease-in-out infinite; }
+  .animate-float-slow { animation: float 7s ease-in-out infinite; }
+
+  .nav-link {
+    position: relative;
+  }
+  .nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0; bottom: -4px;
+    width: 0%;
+    height: 2px;
+    background: #FFD700;
+    transition: width 0.25s ease;
+  }
+  .nav-link:hover::after { width: 100%; }
+</style>
+</head>
+
+<body class="bg-dark-900 text-gray-200 antialiased">
+
+<!-- ===================== NAVIGATION ===================== -->
+<header class="fixed top-0 left-0 w-full z-50 border-b border-gold/10 bg-dark-900/80 backdrop-blur-lg">
+  <nav class="max-w-7xl mx-auto px-5 sm:px-8 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="#home" class="flex items-center gap-2.5 group">
+      <div class="relative w-11 h-11 hex-badge bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center shadow-gold-glow group-hover:scale-105 transition-transform">
+        <i class="fa-solid fa-bee text-dark-900 text-lg"></i>
+      </div>
+      <span class="text-2xl font-en font-extrabold tracking-tight text-white">Boost<span class="text-gold">Hive</span></span>
+    </a>
+
+    <!-- Desktop Links -->
+    <ul class="hidden lg:flex items-center gap-9 font-en font-medium text-sm text-gray-300">
+      <li><a href="#home" class="nav-link hover:text-gold transition-colors">Home</a></li>
+      <li><a href="#services" class="nav-link hover:text-gold transition-colors">Services</a></li>
+      <li><a href="#pricing" class="nav-link hover:text-gold transition-colors">Pricing</a></li>
+      <li><a href="#why-us" class="nav-link hover:text-gold transition-colors">Why Choose Us</a></li>
+      <li><a href="#contact" class="nav-link hover:text-gold transition-colors">Contact</a></li>
+    </ul>
+
+    <!-- WhatsApp CTA -->
+    <div class="flex items-center gap-3">
+      <a href="https://wa.me/01726562160" target="_blank" rel="noopener"
+         class="hidden sm:flex items-center gap-2 bg-gold hover:bg-yellow-400 text-dark-900 font-en font-bold text-sm px-5 py-2.5 rounded-full shadow-gold-glow transition-all hover:-translate-y-0.5">
+        <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp
+      </a>
+      <!-- mobile menu button -->
+      <button id="menuBtn" class="lg:hidden w-10 h-10 flex items-center justify-center rounded-lg border border-gold/20 text-gold">
+        <i class="fa-solid fa-bars text-lg"></i>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Mobile Menu -->
+  <div id="mobileMenu" class="hidden lg:hidden border-t border-gold/10 bg-dark-800 px-5 py-5">
+    <ul class="flex flex-col gap-4 font-en font-medium text-gray-300">
+      <li><a href="#home" class="block hover:text-gold">Home</a></li>
+      <li><a href="#services" class="block hover:text-gold">Services</a></li>
+      <li><a href="#pricing" class="block hover:text-gold">Pricing</a></li>
+      <li><a href="#why-us" class="block hover:text-gold">Why Choose Us</a></li>
+      <li><a href="#contact" class="block hover:text-gold">Contact</a></li>
+      <li>
+        <a href="https://wa.me/01726562160" target="_blank" rel="noopener"
+           class="flex items-center justify-center gap-2 bg-gold text-dark-900 font-bold px-5 py-2.5 rounded-full mt-2">
+          <i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp করুন
+        </a>
+      </li>
+    </ul>
+  </div>
+</header>
+
+<!-- ===================== HERO ===================== -->
+<section id="home" class="relative pt-36 pb-24 lg:pt-44 lg:pb-32 honeycomb-bg overflow-hidden">
+  <div class="blob w-96 h-96 bg-gold top-0 -left-20 animate-float-slow"></div>
+  <div class="blob w-96 h-96 bg-yellow-500 bottom-0 right-0 animate-float"></div>
+
+  <div class="max-w-7xl mx-auto px-5 sm:px-8 grid lg:grid-cols-2 gap-14 items-center relative z-10">
+    <!-- Text -->
+    <div class="text-center lg:text-left">
+      <span class="inline-flex items-center gap-2 bg-gold/10 border border-gold/30 text-gold text-xs font-en font-semibold px-4 py-1.5 rounded-full mb-6">
+        <i class="fa-solid fa-shield-halved"></i> Bangladesh's Trusted SMM Panel
+      </span>
+      <h1 class="text-3xl sm:text-4xl lg:text-5xl font-bold leading-snug text-white mb-5">
+        সোশ্যাল মিডিয়ায় আপনার <span class="gold-gradient-text">প্রভাব বাড়ান!</span>
+      </h1>
+      <p class="text-gray-400 text-base sm:text-lg leading-relaxed mb-9 max-w-xl mx-auto lg:mx-0">
+        Lifetime Unlimited Refill Guarantee সহ ফেসবুক, ইউটিউব এবং ইনস্টাগ্রামের সবচেয়ে বিশ্বস্ত ও দ্রুত সার্ভিস।
+      </p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+        <a href="#services" class="inline-flex items-center justify-center gap-2 bg-gold hover:bg-yellow-400 text-dark-900 font-bold px-7 py-3.5 rounded-full shadow-gold-glow transition-all hover:-translate-y-0.5">
+          <i class="fa-solid fa-bolt"></i> সার্ভিস সমূহ দেখুন
+        </a>
+        <a href="https://wa.me/01726562160" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 bg-transparent border-2 border-gold/40 hover:border-gold text-gold font-bold px-7 py-3.5 rounded-full transition-all hover:-translate-y-0.5">
+          <i class="fa-brands fa-whatsapp text-lg"></i> সরাসরি হোয়াটসঅ্যাপ করুন
+        </a>
+      </div>
+
+      <!-- Trust stats -->
+      <div class="flex items-center justify-center lg:justify-start gap-8 mt-12">
+        <div>
+          <p class="text-2xl font-en font-extrabold text-gold">10,000+</p>
+          <p class="text-xs text-gray-500 font-en">Orders Delivered</p>
+        </div>
+        <div class="w-px h-10 bg-gold/20"></div>
+        <div>
+          <p class="text-2xl font-en font-extrabold text-gold">24/7</p>
+          <p class="text-xs text-gray-500 font-en">Support</p>
+        </div>
+        <div class="w-px h-10 bg-gold/20"></div>
+        <div>
+          <p class="text-2xl font-en font-extrabold text-gold">100%</p>
+          <p class="text-xs text-gray-500 font-en">Safe & Real</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Visual -->
+    <div class="relative flex items-center justify-center">
+      <div class="relative w-72 h-72 sm:w-96 sm:h-96">
+        <div class="absolute inset-0 hex-badge bg-gradient-to-br from-gold/20 to-yellow-700/10 border border-gold/30 animate-float-slow"></div>
+        <div class="absolute inset-6 hex-badge glass-card flex items-center justify-center">
+          <i class="fa-solid fa-bee text-gold text-7xl sm:text-8xl drop-shadow-[0_0_25px_rgba(255,215,0,0.5)]"></i>
+        </div>
+
+        <!-- floating icon chips -->
+        <div class="absolute -top-3 -left-3 w-16 h-16 rounded-2xl glass-card flex items-center justify-center shadow-gold-glow animate-float">
+          <i class="fa-brands fa-facebook text-blue-400 text-2xl"></i>
+        </div>
+        <div class="absolute -bottom-3 -left-5 w-16 h-16 rounded-2xl glass-card flex items-center justify-center shadow-gold-glow animate-float-slow">
+          <i class="fa-brands fa-instagram text-pink-400 text-2xl"></i>
+        </div>
+        <div class="absolute top-1/2 -right-6 -translate-y-1/2 w-16 h-16 rounded-2xl glass-card flex items-center justify-center shadow-gold-glow animate-float">
+          <i class="fa-brands fa-youtube text-red-500 text-2xl"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SERVICES ===================== -->
+<section id="services" class="py-24 bg-dark-800 relative honeycomb-bg-soft">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-gold font-en font-semibold text-sm tracking-widest uppercase">Our Services</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">আমাদের জনপ্রিয় সার্ভিসসমূহ</h2>
+      <p class="text-gray-400">প্রতিটি সার্ভিসের সাথে রয়েছে Lifetime Refill Guarantee — কোনো ড্রপ হলে আমরা ফ্রিতে রিফিল করে দেই।</p>
+    </div>
+
+    <div id="pricing" class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Facebook Card -->
+      <div class="relative glass-card rounded-3xl p-8 hover:shadow-gold-glow-lg hover:-translate-y-2 transition-all duration-300 group">
+        <span class="absolute -top-3 right-6 bg-gold text-dark-900 text-xs font-en font-bold px-3 py-1.5 rounded-full shadow-gold-glow">
+          <i class="fa-solid fa-rotate-left mr-1"></i> Lifetime Refill Guarantee
+        </span>
+        <div class="w-16 h-16 rounded-2xl bg-blue-500/10 border border-blue-400/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <i class="fa-brands fa-facebook text-blue-400 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Facebook</h3>
+        <p class="text-gold font-en font-semibold mb-5">প্রতি ১,০০০ ফলোয়ার মাত্র <span class="text-lg">১০০ টাকা</span> থেকে শুরু</p>
+        <ul class="space-y-3 text-gray-400 text-sm mb-7">
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold"></i> Page Likes</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold"></i> Followers</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold"></i> Group Members</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold"></i> Video Views</li>
+        </ul>
+        <a href="#contact" class="inline-flex items-center gap-2 text-gold font-en font-semibold text-sm hover:gap-3 transition-all">
+          অর্ডার করুন <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- Instagram Card -->
+      <div class="relative glass-card rounded-3xl p-8 hover:shadow-gold-glow-lg hover:-translate-y-2 transition-all duration-300 group lg:scale-105 border-gold/30">
+        <span class="absolute -top-3 right-6 bg-gold text-dark-900 text-xs font-en font-bold px-3 py-1.5 rounded-full shadow-gold-glow">
+          <i class="fa-solid fa-rotate-left mr-1"></i> Lifetime Refill Guarantee
+        </span>
+        <div class="w-16 h-16 rounded-2xl bg-pink-500/10 border border-pink-400/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <i class="fa-brands fa-instagram text-pink-400 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">Instagram</h3>
+        <p class="text-gold font-en font-semibold mb-5">প্রতি ১,০০০ ফলোয়ার মাত্র <span class="text-lg">২৪০ টাকা</span> থেকে শুরু</p>
+        <ul class="space-y-3 text-gray-400 text-sm mb-7">
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold"></i> Followers</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold"></i> Likes</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold"></i> Engagement Package</li>
+        </ul>
+        <a href="#contact" class="inline-flex items-center gap-2 text-gold font-en font-semibold text-sm hover:gap-3 transition-all">
+          অর্ডার করুন <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+      <!-- YouTube Card -->
+      <div class="relative glass-card rounded-3xl p-8 hover:shadow-gold-glow-lg hover:-translate-y-2 transition-all duration-300 group">
+        <span class="absolute -top-3 right-6 bg-gold text-dark-900 text-xs font-en font-bold px-3 py-1.5 rounded-full shadow-gold-glow">
+          <i class="fa-solid fa-rotate-left mr-1"></i> Lifetime Refill Guarantee
+        </span>
+        <div class="w-16 h-16 rounded-2xl bg-red-500/10 border border-red-400/30 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+          <i class="fa-brands fa-youtube text-red-500 text-3xl"></i>
+        </div>
+        <h3 class="text-xl font-bold text-white mb-2">YouTube</h3>
+        <p class="text-gold font-en font-semibold mb-5">সাশ্রয়ী মূল্যে দ্রুত গ্রোথ প্যাকেজ</p>
+        <ul class="space-y-3 text-gray-400 text-sm mb-7">
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold"></i> Subscribers</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold"></i> Watch Time</li>
+          <li class="flex items-center gap-2"><i class="fa-solid fa-circle-check text-gold"></i> Video Views & Growth</li>
+        </ul>
+        <a href="#contact" class="inline-flex items-center gap-2 text-gold font-en font-semibold text-sm hover:gap-3 transition-all">
+          অর্ডার করুন <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ===================== SPECIAL OFFER BANNER ===================== -->
+<section class="py-4 bg-dark-900">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="relative overflow-hidden rounded-3xl bg-gradient-to-r from-yellow-600 via-gold to-yellow-500 p-1 shadow-gold-glow-lg">
+      <div class="rounded-[1.4rem] bg-dark-900 px-6 sm:px-12 py-10 honeycomb-bg-soft flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+        <div class="flex items-center gap-5">
+          <div class="hidden sm:flex w-16 h-16 hex-badge bg-gold/15 border border-gold/40 items-center justify-center flex-shrink-0">
+            <i class="fa-solid fa-gift text-gold text-2xl"></i>
+          </div>
+          <div>
+            <span class="text-gold font-en text-xs font-bold tracking-widest uppercase">Limited Time Offer</span>
+            <h3 class="text-xl sm:text-2xl font-bold text-white mt-1">
+              প্রতি ১,০০০ ফলোয়ার অর্ডারে <span class="text-gold">১০০ পোস্ট রিয়্যাক্ট একদম ফ্রি!</span>
+            </h3>
+            <p class="text-gray-400 text-sm mt-1">(ফেসবুক ও ইনস্টাগ্রাম উভয়ের জন্য প্রযোজ্য)</p>
+          </div>
+        </div>
+        <a href="#contact" class="flex-shrink-0 bg-gold hover:bg-yellow-400 text-dark-900 font-bold px-7 py-3 rounded-full shadow-gold-glow transition-all hover:-translate-y-0.5">
+          অফারটি নিন <i class="fa-solid fa-arrow-right ml-1"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== WHY CHOOSE US ===================== -->
+<section id="why-us" class="py-24 bg-dark-800 honeycomb-bg-soft">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="text-center max-w-2xl mx-auto mb-16">
+      <span class="text-gold font-en font-semibold text-sm tracking-widest uppercase">Our Promises</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3">কেন আমাদের বেছে নেবেন?</h2>
+    </div>
+
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-7">
+      <div class="glass-card rounded-2xl p-7 text-center hover:-translate-y-1.5 hover:shadow-gold-glow transition-all">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center mb-5">
+          <i class="fa-solid fa-shield-halved text-gold text-xl"></i>
+        </div>
+        <h3 class="text-white font-bold mb-2">১০০% নিরাপদ সার্ভিস</h3>
+        <p class="text-gray-400 text-sm">আপনার অ্যাকাউন্টের কোনো ঝুঁকি নেই, সম্পূর্ণ নিরাপদ পদ্ধতিতে কাজ করা হয়।</p>
+      </div>
+      <div class="glass-card rounded-2xl p-7 text-center hover:-translate-y-1.5 hover:shadow-gold-glow transition-all">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center mb-5">
+          <i class="fa-solid fa-bolt text-gold text-xl"></i>
+        </div>
+        <h3 class="text-white font-bold mb-2">দ্রুত ও অটোমেটেড ডেলিভারি</h3>
+        <p class="text-gray-400 text-sm">অর্ডার করার সাথে সাথেই ডেলিভারি প্রক্রিয়া শুরু হয়ে যায়।</p>
+      </div>
+      <div class="glass-card rounded-2xl p-7 text-center hover:-translate-y-1.5 hover:shadow-gold-glow transition-all">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center mb-5">
+          <i class="fa-solid fa-rotate text-gold text-xl"></i>
+        </div>
+        <h3 class="text-white font-bold mb-2">লাইফটাইম রিফিল সাপোর্ট</h3>
+        <p class="text-gray-400 text-sm">কোনো সংখ্যা কমে গেলে বিনামূল্যে রিফিল করে দেওয়া হয়, কোনো সময়সীমা নেই।</p>
+      </div>
+      <div class="glass-card rounded-2xl p-7 text-center hover:-translate-y-1.5 hover:shadow-gold-glow transition-all">
+        <div class="w-14 h-14 mx-auto rounded-2xl bg-gold/10 border border-gold/30 flex items-center justify-center mb-5">
+          <i class="fa-solid fa-headset text-gold text-xl"></i>
+        </div>
+        <h3 class="text-white font-bold mb-2">২৪/৭ ডেডিকেটেড সাপোর্ট</h3>
+        <p class="text-gray-400 text-sm">যেকোনো সময় হোয়াটসঅ্যাপে যোগাযোগ করুন, আমরা সবসময় পাশে আছি।</p>
+      </div>
+    </div>
+
+    <!-- Catchy footer badge -->
+    <div class="mt-14 flex justify-center">
+      <div class="inline-flex items-center gap-3 glass-card border-gold/40 rounded-full px-7 py-4 shadow-gold-glow">
+        <i class="fa-solid fa-handshake text-gold text-xl"></i>
+        <p class="text-gold font-en font-semibold text-sm sm:text-base">আগে কাজ, পরে পেমেন্ট — আপনার আস্থাই আমাদের সফলতা।</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===================== ORDER / CONTACT FORM ===================== -->
+<section id="contact" class="py-24 bg-dark-900 honeycomb-bg relative overflow-hidden">
+  <div class="blob w-96 h-96 bg-gold top-10 right-0 animate-float-slow"></div>
+
+  <div class="max-w-3xl mx-auto px-5 sm:px-8 relative z-10">
+    <div class="text-center mb-12">
+      <span class="text-gold font-en font-semibold text-sm tracking-widest uppercase">Place Your Order</span>
+      <h2 class="text-3xl sm:text-4xl font-bold text-white mt-3 mb-4">এখনই অর্ডার করুন</h2>
+      <p class="text-gray-400">নিচের ফর্মটি পূরণ করুন — সাবমিট করলেই হোয়াটসঅ্যাপে আপনার তথ্যসহ মেসেজ চলে যাবে।</p>
+    </div>
+
+    <form id="orderForm" class="glass-card rounded-3xl p-7 sm:p-10 space-y-6">
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-en font-medium text-gray-300 mb-2"><i class="fa-solid fa-user text-gold mr-1.5"></i>আপনার নাম</label>
+          <input type="text" id="name" required placeholder="যেমন: রহিম উদ্দিন"
+            class="w-full bg-dark-700 border border-gold/20 focus:border-gold rounded-xl px-4 py-3 text-gray-200 placeholder-gray-500 outline-none transition-colors">
+        </div>
+        <div>
+          <label class="block text-sm font-en font-medium text-gray-300 mb-2"><i class="fa-brands fa-whatsapp text-gold mr-1.5"></i>হোয়াটসঅ্যাপ নম্বর</label>
+          <input type="tel" id="whatsapp" required placeholder="01XXXXXXXXX"
+            class="w-full bg-dark-700 border border-gold/20 focus:border-gold rounded-xl px-4 py-3 text-gray-200 placeholder-gray-500 outline-none transition-colors">
+        </div>
+      </div>
+
+      <div>
+        <label class="block text-sm font-en font-medium text-gray-300 mb-2"><i class="fa-solid fa-link text-gold mr-1.5"></i>সোশ্যাল মিডিয়া লিংক / URL</label>
+        <input type="text" id="link" required placeholder="আপনার প্রোফাইল/পেজ/ভিডিও লিংক দিন"
+          class="w-full bg-dark-700 border border-gold/20 focus:border-gold rounded-xl px-4 py-3 text-gray-200 placeholder-gray-500 outline-none transition-colors">
+      </div>
+
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div>
+          <label class="block text-sm font-en font-medium text-gray-300 mb-2"><i class="fa-solid fa-share-nodes text-gold mr-1.5"></i>প্ল্যাটফর্ম নির্বাচন করুন</label>
+          <select id="platform" required class="w-full bg-dark-700 border border-gold/20 focus:border-gold rounded-xl px-4 py-3 text-gray-200 outline-none transition-colors">
+            <option value="">প্ল্যাটফর্ম বাছাই করুন</option>
+            <option value="Facebook">Facebook</option>
+            <option value="Instagram">Instagram</option>
+            <option value="YouTube">YouTube</option>
+          </select>
+        </div>
+        <div>
+          <label class="block text-sm font-en font-medium text-gray-300 mb-2"><i class="fa-solid fa-box-open text-gold mr-1.5"></i>সার্ভিস প্যাকেজ নির্বাচন করুন</label>
+          <select id="package" required class="w-full bg-dark-700 border border-gold/20 focus:border-gold rounded-xl px-4 py-3 text-gray-200 outline-none transition-colors">
+            <option value="">প্যাকেজ বাছাই করুন</option>
+            <option value="Page Likes / Followers">Page Likes / Followers</option>
+            <option value="Group Members">Group Members</option>
+            <option value="Video Views">Video Views</option>
+            <option value="Instagram Followers">Instagram Followers</option>
+            <option value="Instagram Likes">Instagram Likes</option>
+            <option value="Engagement Package">Engagement Package</option>
+            <option value="YouTube Subscribers">YouTube Subscribers</option>
+            <option value="YouTube Watch Time">YouTube Watch Time</option>
+            <option value="Other / Custom">Other / Custom</option>
+          </select>
+        </div>
+      </div>
+
+      <button type="submit"
+        class="w-full flex items-center justify-center gap-3 bg-gold hover:bg-yellow-400 text-dark-900 font-en font-bold text-base sm:text-lg px-7 py-4 rounded-xl shadow-gold-glow-lg transition-all hover:-translate-y-0.5">
+        <i class="fa-brands fa-whatsapp text-2xl"></i> অর্ডার সাবমিট করুন (হোয়াটসঅ্যাপের মাধ্যমে)
+      </button>
+      <p class="text-center text-xs text-gray-500">সাবমিট করলে আপনি সরাসরি হোয়াটসঅ্যাপে রিডাইরেক্ট হবেন এবং আপনার তথ্যসহ মেসেজ প্রি-ফিল হয়ে থাকবে।</p>
+    </form>
+  </div>
+</section>
+
+<!-- ===================== FOOTER ===================== -->
+<footer class="bg-dark-800 border-t border-gold/10 pt-16 pb-8 honeycomb-bg-soft">
+  <div class="max-w-7xl mx-auto px-5 sm:px-8">
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+      <!-- Brand -->
+      <div class="lg:col-span-2">
+        <a href="#home" class="flex items-center gap-2.5 mb-4">
+          <div class="w-11 h-11 hex-badge bg-gradient-to-br from-gold to-yellow-600 flex items-center justify-center">
+            <i class="fa-solid fa-bee text-dark-900 text-lg"></i>
+          </div>
+          <span class="text-2xl font-en font-extrabold text-white">Boost<span class="text-gold">Hive</span></span>
+        </a>
+        <p class="text-gray-400 text-sm leading-relaxed max-w-sm">
+          ফেসবুক, ইউটিউব ও ইনস্টাগ্রামের জন্য বিশ্বস্ত, দ্রুত এবং নিরাপদ SMM সার্ভিস প্রোভাইডার। Lifetime Refill Guarantee সহ সেরা মূল্যে সার্ভিস নিন।
+        </p>
+        <div class="flex gap-3 mt-6">
+          <a href="https://wa.me/01726562160" target="_blank" rel="noopener" class="w-10 h-10 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-dark-900 transition-colors">
+            <i class="fa-brands fa-whatsapp"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-dark-900 transition-colors">
+            <i class="fa-brands fa-facebook-f"></i>
+          </a>
+          <a href="#" class="w-10 h-10 rounded-full bg-gold/10 border border-gold/30 flex items-center justify-center text-gold hover:bg-gold hover:text-dark-900 transition-colors">
+            <i class="fa-brands fa-instagram"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Links -->
+      <div>
+        <h4 class="text-white font-en font-semibold mb-5">Quick Links</h4>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li><a href="#home" class="hover:text-gold transition-colors">Home</a></li>
+          <li><a href="#services" class="hover:text-gold transition-colors">Services</a></li>
+          <li><a href="#pricing" class="hover:text-gold transition-colors">Pricing</a></li>
+          <li><a href="#why-us" class="hover:text-gold transition-colors">Why Choose Us</a></li>
+          <li><a href="#contact" class="hover:text-gold transition-colors">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div>
+        <h4 class="text-white font-en font-semibold mb-5">যোগাযোগ করুন</h4>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li class="flex items-center gap-2.5">
+            <i class="fa-brands fa-whatsapp text-gold"></i>
+            <a href="https://wa.me/01726562160" target="_blank" rel="noopener" class="hover:text-gold transition-colors">01726562160</a>
+          </li>
+          <li class="flex items-center gap-2.5">
+            <i class="fa-solid fa-clock text-gold"></i> ২৪/৭ সার্ভিস চালু আছে
+          </li>
+          <li class="flex items-center gap-2.5">
+            <i class="fa-solid fa-location-dot text-gold"></i> Bangladesh
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="border-t border-gold/10 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-gray-500">
+      <p>© 2026 BoostHive SMM Solutions. All rights reserved.</p>
+      <p class="flex items-center gap-2">
+        <i class="fa-brands fa-whatsapp text-gold"></i> 01726562160
+      </p>
+    </div>
+  </div>
+</footer>
+
+<!-- Floating WhatsApp Button -->
+<a href="https://wa.me/01726562160" target="_blank" rel="noopener"
+   class="fixed bottom-6 right-6 z-50 w-16 h-16 rounded-full bg-gold flex items-center justify-center shadow-gold-glow-lg hover:scale-110 transition-transform">
+  <i class="fa-brands fa-whatsapp text-dark-900 text-3xl"></i>
+</a>
+
+<script>
+  // Mobile menu toggle
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+  mobileMenu.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+  });
+
+  // Order form -> WhatsApp redirect
+  const orderForm = document.getElementById('orderForm');
+  orderForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = document.getElementById('name').value.trim();
+    const whatsapp = document.getElementById('whatsapp').value.trim();
+    const link = document.getElementById('link').value.trim();
+    const platform = document.getElementById('platform').value;
+    const pkg = document.getElementById('package').value;
+
+    const message =
+`নতুন অর্ডার - BoostHive 🐝
+------------------------
+নাম: ${name}
+হোয়াটসঅ্যাপ নম্বর: ${whatsapp}
+প্ল্যাটফর্ম: ${platform}
+সার্ভিস প্যাকেজ: ${pkg}
+লিংক: ${link}
+------------------------
+দয়া করে অর্ডারটি কনফার্ম করুন।`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const waUrl = `https://wa.me/01726562160?text=${encodedMessage}`;
+    window.open(waUrl, '_blank');
+  });
+
+  // Smooth scroll for anchor links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href');
+      if (targetId.length > 1) {
+        const target = document.querySelector(targetId);
+        if (target) {
+          e.preventDefault();
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
